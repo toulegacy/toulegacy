@@ -1,105 +1,57 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 
-export default function LandingPage() {
+export default function Home() {
   return (
-    <div
-      className="hero-shimmer"
+    <main
       style={{
-        position: "relative",
-        height: "100vh",
-        width: "100%",
-        backgroundImage: "url('/BG.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        overflow: "hidden",
+        minHeight: "100vh",
+        background: "#000",
         display: "flex",
-        alignItems: "center",
+        flexDirection: "column",
         justifyContent: "center",
-        flexDirection: "column"
+        alignItems: "center",
+        textAlign: "center",
+        padding: "20px",
       }}
     >
-      {/* LOGO */}
-      <Image
-        src="/logo.png"
-        alt="Toulegacy Logo"
-        width={180}
-        height={180}
-        style={{ marginBottom: "10px" }}
-      />
-
-      {/* BRAND NAME */}
-      <h1
-        style={{
-          fontSize: "42px",
-          fontWeight: "800",
-          letterSpacing: "2px",
-          color: "#ffffff",
-          textAlign: "center",
-          marginTop: "-10px",
-          marginBottom: "10px",
-          textShadow: "0 0 35px rgba(0,0,0,0.9)",
-        }}
-      >
-        TOULEGACY
+      <h1 style={{ color: "white", fontSize: "34px", marginBottom: "10px" }}>
+        Welcome to TouLegacy
       </h1>
 
-      {/* TAGLINE */}
-      <h2
-        style={{
-          fontSize: "34px",
-          fontWeight: "800",
-          textAlign: "center",
-          color: "white",
-          maxWidth: "90%",
-          textShadow: "0 0 35px black",
-          marginBottom: "40px",
-        }}
-      >
-        WELCOME TO THE <br /> PREMIUM MARKETPLACE
-      </h2>
+      <p style={{ color: "#aaa", maxWidth: "500px", marginBottom: "30px" }}>
+        Premium marketplace. Private access. Elite tools.
+      </p>
 
-      {/* BUTTONS */}
       <div style={{ display: "flex", gap: "20px" }}>
         <Link href="/auth/signup">
-          <button
-            style={{
-              padding: "10px 28px",
-              borderRadius: "8px",
-              border: "2px solid #cfa34a",
-              backgroundColor: "transparent",
-              color: "#cfa34a",
-              fontWeight: "bold",
-              fontSize: "16px",
-              cursor: "pointer",
-              transition: "0.25s",
-            }}
-          >
-            Sign up
-          </button>
+          <button style={btnPrimary}>Sign Up</button>
         </Link>
 
         <Link href="/auth/signin">
-          <button
-            style={{
-              padding: "10px 28px",
-              borderRadius: "8px",
-              border: "2px solid #cfa34a",
-              backgroundColor: "transparent",
-              color: "#cfa34a",
-              fontWeight: "bold",
-              fontSize: "16px",
-              cursor: "pointer",
-              transition: "0.25s",
-            }}
-          >
-            Sign in
-          </button>
+          <button style={btnOutline}>Sign In</button>
         </Link>
       </div>
-    </div>
+    </main>
   );
 }
+
+const btnPrimary = {
+  padding: "12px 28px",
+  background: "gold",
+  border: "none",
+  borderRadius: "6px",
+  fontWeight: "bold",
+  cursor: "pointer",
+};
+
+const btnOutline = {
+  padding: "12px 28px",
+  background: "transparent",
+  border: "1px solid gold",
+  color: "gold",
+  borderRadius: "6px",
+  fontWeight: "bold",
+  cursor: "pointer",
+};

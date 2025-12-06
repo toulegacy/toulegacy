@@ -1,29 +1,105 @@
-export default function Home() {
+"use client";
+
+import Link from "next/link";
+import Image from "next/image";
+
+export default function LandingPage() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-zinc-50 text-black dark:bg-black dark:text-white font-sans">
-      <main className="text-center space-y-6">
-        <h1 className="text-4xl font-bold tracking-tight">Welcome to CC Site</h1>
-        <p className="text-lg text-zinc-600 dark:text-zinc-400">
-          Your creative credit solutions, simplified and secure.
-        </p>
-        <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="#services"
-            className="px-6 py-3 bg-black text-white rounded-md hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200 transition"
+    <div
+      className="hero-shimmer"
+      style={{
+        position: "relative",
+        height: "100vh",
+        width: "100%",
+        backgroundImage: "url('/BG.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        overflow: "hidden",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "column"
+      }}
+    >
+      {/* LOGO */}
+      <Image
+        src="/logo.png"
+        alt="Toulegacy Logo"
+        width={180}
+        height={180}
+        style={{ marginBottom: "10px" }}
+      />
+
+      {/* BRAND NAME */}
+      <h1
+        style={{
+          fontSize: "42px",
+          fontWeight: "800",
+          letterSpacing: "2px",
+          color: "#ffffff",
+          textAlign: "center",
+          marginTop: "-10px",
+          marginBottom: "10px",
+          textShadow: "0 0 35px rgba(0,0,0,0.9)",
+        }}
+      >
+        TOULEGACY
+      </h1>
+
+      {/* TAGLINE */}
+      <h2
+        style={{
+          fontSize: "34px",
+          fontWeight: "800",
+          textAlign: "center",
+          color: "white",
+          maxWidth: "90%",
+          textShadow: "0 0 35px black",
+          marginBottom: "40px",
+        }}
+      >
+        WELCOME TO THE <br /> PREMIUM MARKETPLACE
+      </h2>
+
+      {/* BUTTONS */}
+      <div style={{ display: "flex", gap: "20px" }}>
+        <Link href="/auth/signup">
+          <button
+            style={{
+              padding: "10px 28px",
+              borderRadius: "8px",
+              border: "2px solid #cfa34a",
+              backgroundColor: "transparent",
+              color: "#cfa34a",
+              fontWeight: "bold",
+              fontSize: "16px",
+              cursor: "pointer",
+              transition: "0.25s",
+            }}
           >
-            View Services
-          </a>
-          <a
-            href="#contact"
-            className="px-6 py-3 border border-zinc-400 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800 transition"
+            Sign up
+          </button>
+        </Link>
+
+        <Link href="/auth/signin">
+          <button
+            style={{
+              padding: "10px 28px",
+              borderRadius: "8px",
+              border: "2px solid #cfa34a",
+              backgroundColor: "transparent",
+              color: "#cfa34a",
+              fontWeight: "bold",
+              fontSize: "16px",
+              cursor: "pointer",
+              transition: "0.25s",
+            }}
           >
-            Contact Us
-          </a>
-        </div>
-      </main>
-      <footer className="absolute bottom-6 text-sm text-zinc-500 dark:text-zinc-400">
-        © {new Date().getFullYear()} CC Site. All rights reserved.
-      </footer>
+            Sign in
+          </button>
+        </Link>
+      </div>
     </div>
-  )
+  );
 }
